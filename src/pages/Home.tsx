@@ -16,7 +16,7 @@ export function Home() {
   function handleAddTask(newTaskTitle: string) {
     //TODO - add new task if it's not empty
     const data = {
-      id: new Date().getSeconds(),
+      id: new Date().getMilliseconds(),
       title: newTaskTitle,
       done: false,
     };
@@ -37,7 +37,8 @@ export function Home() {
 
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
-    setTasks(tasks.filter((task) => task.id !== id));
+    const rmTask = tasks.filter((task) => task.id !== id);
+    setTasks(rmTask);
   }
 
   return (
